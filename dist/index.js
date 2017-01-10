@@ -8,7 +8,9 @@ var _config = require('./config');
 
 var _config2 = _interopRequireDefault(_config);
 
-var _utils = require('./utils');
+var _Processor = require('./Processor');
+
+var _Processor2 = _interopRequireDefault(_Processor);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18,8 +20,8 @@ if (!params.config) {
   throw new Error('Missing required argument "config"');
 }
 
-var translationsConfig = (0, _utils.parseTranslationsConfig)(params.config);
-
-(0, _utils.parseTranslations)(translationsConfig.sourceDir, _config2.default.regex).then(function (translations) {
-  return (0, _utils.saveTranslations)(translations, translationsConfig);
+new _Processor2.default(params.config, _config2.default.regex).then(function (processor) {
+  return processor.process();
+}).then(function (processor) {
+  return processor.save();
 });

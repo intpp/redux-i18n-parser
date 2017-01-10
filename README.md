@@ -15,11 +15,13 @@ I18n.t('HERE.YOUR.TRANSLATION.TOKEN')
 
 ### Instalation
 
-``yarn add redux-i18n-parser``
+```
+yarn add redux-i18n-parser
+```
 
 ### Usage
 
-``node ./node_modules/redux-i18n-parser/bin --config={PATH_TO_CONFIG}``
+``node ./node_modules/.bin/i18n-parser --config={PATH_TO_CONFIG}``
 
 ### Configuration
 

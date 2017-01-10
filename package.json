@@ -1,6 +1,6 @@
 {
   "name": "redux-i18n-parser",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,7 @@
     "prepublish": "npm run build"
   },
   "bin": {
-    "redux-i18n-parser": "./dist/index.js"
+    "i18n-parser": "./dist/index.js"
   },
   "dependencies": {
     "babel-cli": "^6.5.1",

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import commandLineArgs from 'command-line-args';
 import config from './config';
 import Processor from './Processor';

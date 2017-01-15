@@ -105,8 +105,8 @@ class Processor {
 
         readJsonFile(translationPath)
           .then(
-            current => writeJsonFile(translationPath, _.merge(current || {}, this.translations)),
-            error => writeJsonFile(translationPath, _.merge(this.translations))
+            current => writeJsonFile(translationPath, _.defaultsDeep(current || {}, this.translations)),
+            error => writeJsonFile(translationPath, this.translations)
           );
       });
     }

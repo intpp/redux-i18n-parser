@@ -4,6 +4,7 @@ import recursive from 'recursive-readdir';
 import {
   readJsonFile,
   writeJsonFile,
+  patchObject,
 } from './utils';
 import _ from 'lodash';
 
@@ -68,7 +69,7 @@ class Processor {
               fs.readFileSync(item, { encoding: 'UTF-8' }),
               this.regex
             )), res), [])
-          .forEach(item => _.set(result, item, ''));
+          .forEach(item => patchObject(result, item, ''));
 
         resolve(result);
       });

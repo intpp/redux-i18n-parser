@@ -1,4 +1,5 @@
 import fs from 'fs';
+import _ from 'lodash';
 
 const parseJson = (data, defaultValue = {}) => {
   try {
@@ -38,8 +39,17 @@ const writeJsonFile = (dest, data) => new Promise((resolve, reject) => {
   });
 });
 
+const patchObject = (object, key, value = '') => {
+  if (/ /.test(key)) {
+    object[key] = value;
+  } else {
+    _.set(object, key, value);
+  }
+};
+
 export {
   readJsonFile,
   writeJsonFile,
   parseJson,
+  patchObject,
 };

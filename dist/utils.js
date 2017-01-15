@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.parseJson = exports.writeJsonFile = exports.readJsonFile = undefined;
+exports.patchObject = exports.parseJson = exports.writeJsonFile = exports.readJsonFile = undefined;
 
 var _stringify = require('babel-runtime/core-js/json/stringify');
 
@@ -16,6 +16,10 @@ var _promise2 = _interopRequireDefault(_promise);
 var _fs = require('fs');
 
 var _fs2 = _interopRequireDefault(_fs);
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -63,6 +67,17 @@ var writeJsonFile = function writeJsonFile(dest, data) {
   });
 };
 
+var patchObject = function patchObject(object, key) {
+  var value = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+
+  if (/ /.test(key)) {
+    object[key] = value;
+  } else {
+    _lodash2.default.set(object, key, value);
+  }
+};
+
 exports.readJsonFile = readJsonFile;
 exports.writeJsonFile = writeJsonFile;
 exports.parseJson = parseJson;
+exports.patchObject = patchObject;

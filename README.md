@@ -1,6 +1,6 @@
 ## redux-i18n-parser
 
-Utility for parsing translations for [react-redux-i18n](https://github.com/zoover/react-redux-i18n).
+Utility for parsing translations for [react-native](https://github.com/AlexanderZaytsev/react-native-i18n) and [react-redux-i18n](https://github.com/zoover/react-redux-i18n).
 
 Utility parses snippets like:
 ```javascript

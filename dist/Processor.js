@@ -107,7 +107,7 @@ var _initialiseProps = function _initialiseProps() {
         files.reduce(function (res, item) {
           return res.push.apply(res, (0, _toConsumableArray3.default)(_this.matchTranslations(_fs2.default.readFileSync(item, { encoding: 'UTF-8' }), _this.regex))), res;
         }, []).forEach(function (item) {
-          return _lodash2.default.set(result, item, '');
+          return (0, _utils.patchObject)(result, item, '');
         });
 
         resolve(result);
@@ -148,9 +148,9 @@ var _initialiseProps = function _initialiseProps() {
         var translationPath = _path2.default.resolve('' + _this.outputDir + _path2.default.sep + language + '.json');
 
         (0, _utils.readJsonFile)(translationPath).then(function (current) {
-          return (0, _utils.writeJsonFile)(translationPath, _lodash2.default.merge(current || {}, _this.translations));
+          return (0, _utils.writeJsonFile)(translationPath, _lodash2.default.defaultsDeep(current || {}, _this.translations));
         }, function (error) {
-          return (0, _utils.writeJsonFile)(translationPath, _lodash2.default.merge(_this.translations));
+          return (0, _utils.writeJsonFile)(translationPath, _this.translations);
         });
       });
     }
